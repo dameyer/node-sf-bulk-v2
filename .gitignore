@@ -1,2 +1,4 @@
 tst.js
 bulk_config.js
+*.csv
+/results/*.csv

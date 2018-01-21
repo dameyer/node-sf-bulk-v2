@@ -36,7 +36,8 @@ module.exports = {
 
 const SUCCESSFUL_RESULTS = 'successfulResults',
     FAILED_RESULTS = 'failedResults',
-    JOB_COMPLETE = 'JobComplete'
+    JOB_COMPLETE = 'JobComplete',
+    RESULTS_DIRECTORY = 'results/'
 
 let options = {};
 
@@ -57,7 +58,7 @@ let login = function() {
     request.post({
             headers: {
                 'Content-Type': 'text/xml; charset=utf-8',
-                'SOAPAction': "burgers"
+                'SOAPAction': "tacos"
             },
             url: loginUrl,
             body: loginXml,
@@ -73,6 +74,7 @@ let login = function() {
                     baseUrl = response.body.split('serverUrl')[1].replace('>', '').replace('</', '').split('/services/Soap/u')[0] + baseUrl;
 
                     console.log(baseUrl)
+                    console.log(config.USERNAME)
 
                     options.headers = {
                         'Authorization': 'Bearer ' + sid
@@ -195,6 +197,7 @@ let getResults = function(which) {
             console.log(error + ': error');
         } else {
             console.log(response.body)
+            fs.writeFileSync(RESULTS_DIRECTORY + which + ' ' + Date() + '.csv', response.body, 'utf-8');
             if (which === FAILED_RESULTS) {
                 getResults(SUCCESSFUL_RESULTS)
             }
