@@ -1,5 +1,7 @@
 
-clone
+use node & v2 of the bulk api https://goo.gl/GfwRrh
+
+clone this
 
 npm install
 
