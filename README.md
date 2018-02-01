@@ -7,6 +7,6 @@ npm install
 
 create a csv
 
-create a bulk_config.js
+create a bulk_config.js, format is in bulk_load.js
 
 node bulk_load.js
