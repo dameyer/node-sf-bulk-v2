@@ -1,7 +1,9 @@
 
-- to use node & v2 of the bulk api https://goo.gl/GfwRrh
+- to use node.js & v2 of the salesforce bulk api https://goo.gl/GfwRrh
 
-clone this
+install node.js https://nodejs.org/en/
+
+clone this repo
 
 npm install
 
